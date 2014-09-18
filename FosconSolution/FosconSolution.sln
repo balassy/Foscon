@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foscon.Client", "Foscon.Client\Foscon.Client.csproj", "{386C6072-B871-4F27-988E-8335D54F3928}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foscon.DesktopTester", "Foscon.DesktopTester\Foscon.DesktopTester.csproj", "{40A0751B-C126-4651-8BC2-7A07FEF5FCCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{B943381E-1151-42E1-B23B-0F10B81551A2}"
+	ProjectSection(SolutionItems) = preProject
+		Doc\Foscam IPCamera CGI User Guide-3518 Ver.1.0.8.pdf = Doc\Foscam IPCamera CGI User Guide-3518 Ver.1.0.8.pdf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{386C6072-B871-4F27-988E-8335D54F3928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386C6072-B871-4F27-988E-8335D54F3928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386C6072-B871-4F27-988E-8335D54F3928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386C6072-B871-4F27-988E-8335D54F3928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A0751B-C126-4651-8BC2-7A07FEF5FCCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A0751B-C126-4651-8BC2-7A07FEF5FCCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A0751B-C126-4651-8BC2-7A07FEF5FCCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A0751B-C126-4651-8BC2-7A07FEF5FCCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
