@@ -53,7 +53,7 @@
 			this.txtAddress.Name = "txtAddress";
 			this.txtAddress.Size = new System.Drawing.Size(119, 20);
 			this.txtAddress.TabIndex = 1;
-			this.txtAddress.Text = "192.168.1.101:88";
+			this.txtAddress.Text = "192.168.0.103:88";
 			// 
 			// lblUserName
 			// 

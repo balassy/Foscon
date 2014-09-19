@@ -25,8 +25,9 @@ namespace Foscon.DesktopTester
 
 			Camera c = new Camera( this.txtAddress.Text, this.txtUserName.Text, this.txtPassword.Text );
 			GetIPInfoResult ipInfo = await c.GetIPInfo();
-			GetProductModelNameResult productModelName = await c.GetProductModelName();
+			GetProductModelNameResult productModelName = await c.GetProductModelName().ConfigureAwait(false);
 
+			//this.lblCameraInfo.Text = String.Format( CultureInfo.InvariantCulture, "Model {0}", ipInfo.IPAddress );
 			this.lblCameraInfo.Text = String.Format( CultureInfo.InvariantCulture, "Model {0} on {1}", productModelName.ModelName, ipInfo.IPAddress );
 		}
 

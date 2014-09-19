@@ -256,8 +256,9 @@ namespace Foscon.Client
 			string url = this.BuildCommandUrl( commandName );
 
 			// Execute the command and download the raw XML result string.
+			// NOTE: ConfigureAwait is added to avoid blocking UI threads. See: http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
 			HttpClient client = new HttpClient();
-			string result = await client.GetStringAsync( url );
+			string result = await client.GetStringAsync( url ).ConfigureAwait( false );
 
 			// Convert the raw XML result string to the expected result type.
 			TextReader reader = new StringReader( result );
