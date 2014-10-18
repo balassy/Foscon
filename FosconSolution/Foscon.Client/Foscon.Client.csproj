@@ -115,6 +115,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camera.DeviceManagement.cs" />
+    <Compile Include="Camera.PTZ.cs" />
+    <Compile Include="Camera.Network.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Enums\CommandResult.cs" />
     <Compile Include="Results\GetIPInfoResult.cs" />
