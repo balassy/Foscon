@@ -38,6 +38,23 @@
 			this.lblCameraInfo = new System.Windows.Forms.Label();
 			this.lblPort = new System.Windows.Forms.Label();
 			this.txtPort = new System.Windows.Forms.TextBox();
+			this.grpDeviceInfo = new System.Windows.Forms.GroupBox();
+			this.lblHardwareVersion = new System.Windows.Forms.Label();
+			this.lblHardwareVersionPrompt = new System.Windows.Forms.Label();
+			this.lblFirmwareVersion = new System.Windows.Forms.Label();
+			this.lblFirmwareVersionPrompt = new System.Windows.Forms.Label();
+			this.lblTimeZone = new System.Windows.Forms.Label();
+			this.lblCurrentDate = new System.Windows.Forms.Label();
+			this.lblCurrentDatePrompt = new System.Windows.Forms.Label();
+			this.lblMac = new System.Windows.Forms.Label();
+			this.lblMacPrompt = new System.Windows.Forms.Label();
+			this.lblSerialNo = new System.Windows.Forms.Label();
+			this.lblSerialNoPrompt = new System.Windows.Forms.Label();
+			this.lblDeviceName = new System.Windows.Forms.Label();
+			this.lblDeviceNamePrompt = new System.Windows.Forms.Label();
+			this.lblProductName = new System.Windows.Forms.Label();
+			this.lblProductNamePrompt = new System.Windows.Forms.Label();
+			this.grpDeviceInfo.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lblHostName
@@ -55,7 +72,7 @@
 			this.txtHostName.Name = "txtHostName";
 			this.txtHostName.Size = new System.Drawing.Size(119, 20);
 			this.txtHostName.TabIndex = 1;
-			this.txtHostName.Text = "192.168.0.103";
+			this.txtHostName.Text = "192.168.0.104";
 			// 
 			// lblUserName
 			// 
@@ -128,12 +145,172 @@
 			this.txtPort.TabIndex = 9;
 			this.txtPort.Text = "88";
 			// 
+			// grpDeviceInfo
+			// 
+			this.grpDeviceInfo.Controls.Add(this.lblHardwareVersion);
+			this.grpDeviceInfo.Controls.Add(this.lblHardwareVersionPrompt);
+			this.grpDeviceInfo.Controls.Add(this.lblFirmwareVersion);
+			this.grpDeviceInfo.Controls.Add(this.lblFirmwareVersionPrompt);
+			this.grpDeviceInfo.Controls.Add(this.lblTimeZone);
+			this.grpDeviceInfo.Controls.Add(this.lblCurrentDate);
+			this.grpDeviceInfo.Controls.Add(this.lblCurrentDatePrompt);
+			this.grpDeviceInfo.Controls.Add(this.lblMac);
+			this.grpDeviceInfo.Controls.Add(this.lblMacPrompt);
+			this.grpDeviceInfo.Controls.Add(this.lblSerialNo);
+			this.grpDeviceInfo.Controls.Add(this.lblSerialNoPrompt);
+			this.grpDeviceInfo.Controls.Add(this.lblDeviceName);
+			this.grpDeviceInfo.Controls.Add(this.lblDeviceNamePrompt);
+			this.grpDeviceInfo.Controls.Add(this.lblProductName);
+			this.grpDeviceInfo.Controls.Add(this.lblProductNamePrompt);
+			this.grpDeviceInfo.Location = new System.Drawing.Point(16, 141);
+			this.grpDeviceInfo.Name = "grpDeviceInfo";
+			this.grpDeviceInfo.Size = new System.Drawing.Size(355, 199);
+			this.grpDeviceInfo.TabIndex = 10;
+			this.grpDeviceInfo.TabStop = false;
+			this.grpDeviceInfo.Text = "Device info";
+			// 
+			// lblHardwareVersion
+			// 
+			this.lblHardwareVersion.AutoSize = true;
+			this.lblHardwareVersion.Location = new System.Drawing.Point(106, 172);
+			this.lblHardwareVersion.Name = "lblHardwareVersion";
+			this.lblHardwareVersion.Size = new System.Drawing.Size(113, 13);
+			this.lblHardwareVersion.TabIndex = 16;
+			this.lblHardwareVersion.Text = "(Please click Connect)";
+			// 
+			// lblHardwareVersionPrompt
+			// 
+			this.lblHardwareVersionPrompt.AutoSize = true;
+			this.lblHardwareVersionPrompt.Location = new System.Drawing.Point(6, 172);
+			this.lblHardwareVersionPrompt.Name = "lblHardwareVersionPrompt";
+			this.lblHardwareVersionPrompt.Size = new System.Drawing.Size(93, 13);
+			this.lblHardwareVersionPrompt.TabIndex = 15;
+			this.lblHardwareVersionPrompt.Text = "Hardware version:";
+			// 
+			// lblFirmwareVersion
+			// 
+			this.lblFirmwareVersion.AutoSize = true;
+			this.lblFirmwareVersion.Location = new System.Drawing.Point(106, 148);
+			this.lblFirmwareVersion.Name = "lblFirmwareVersion";
+			this.lblFirmwareVersion.Size = new System.Drawing.Size(113, 13);
+			this.lblFirmwareVersion.TabIndex = 14;
+			this.lblFirmwareVersion.Text = "(Please click Connect)";
+			// 
+			// lblFirmwareVersionPrompt
+			// 
+			this.lblFirmwareVersionPrompt.AutoSize = true;
+			this.lblFirmwareVersionPrompt.Location = new System.Drawing.Point(6, 148);
+			this.lblFirmwareVersionPrompt.Name = "lblFirmwareVersionPrompt";
+			this.lblFirmwareVersionPrompt.Size = new System.Drawing.Size(89, 13);
+			this.lblFirmwareVersionPrompt.TabIndex = 13;
+			this.lblFirmwareVersionPrompt.Text = "Firmware version:";
+			// 
+			// lblTimeZone
+			// 
+			this.lblTimeZone.AutoSize = true;
+			this.lblTimeZone.Location = new System.Drawing.Point(227, 124);
+			this.lblTimeZone.Name = "lblTimeZone";
+			this.lblTimeZone.Size = new System.Drawing.Size(113, 13);
+			this.lblTimeZone.TabIndex = 12;
+			this.lblTimeZone.Text = "(Please click Connect)";
+			// 
+			// lblCurrentDate
+			// 
+			this.lblCurrentDate.AutoSize = true;
+			this.lblCurrentDate.Location = new System.Drawing.Point(106, 124);
+			this.lblCurrentDate.Name = "lblCurrentDate";
+			this.lblCurrentDate.Size = new System.Drawing.Size(113, 13);
+			this.lblCurrentDate.TabIndex = 9;
+			this.lblCurrentDate.Text = "(Please click Connect)";
+			// 
+			// lblCurrentDatePrompt
+			// 
+			this.lblCurrentDatePrompt.AutoSize = true;
+			this.lblCurrentDatePrompt.Location = new System.Drawing.Point(6, 124);
+			this.lblCurrentDatePrompt.Name = "lblCurrentDatePrompt";
+			this.lblCurrentDatePrompt.Size = new System.Drawing.Size(68, 13);
+			this.lblCurrentDatePrompt.TabIndex = 8;
+			this.lblCurrentDatePrompt.Text = "Current date:";
+			// 
+			// lblMac
+			// 
+			this.lblMac.AutoSize = true;
+			this.lblMac.Location = new System.Drawing.Point(106, 100);
+			this.lblMac.Name = "lblMac";
+			this.lblMac.Size = new System.Drawing.Size(113, 13);
+			this.lblMac.TabIndex = 7;
+			this.lblMac.Text = "(Please click Connect)";
+			// 
+			// lblMacPrompt
+			// 
+			this.lblMacPrompt.AutoSize = true;
+			this.lblMacPrompt.Location = new System.Drawing.Point(6, 100);
+			this.lblMacPrompt.Name = "lblMacPrompt";
+			this.lblMacPrompt.Size = new System.Drawing.Size(73, 13);
+			this.lblMacPrompt.TabIndex = 6;
+			this.lblMacPrompt.Text = "MAC address:";
+			// 
+			// lblSerialNo
+			// 
+			this.lblSerialNo.AutoSize = true;
+			this.lblSerialNo.Location = new System.Drawing.Point(106, 76);
+			this.lblSerialNo.Name = "lblSerialNo";
+			this.lblSerialNo.Size = new System.Drawing.Size(113, 13);
+			this.lblSerialNo.TabIndex = 5;
+			this.lblSerialNo.Text = "(Please click Connect)";
+			// 
+			// lblSerialNoPrompt
+			// 
+			this.lblSerialNoPrompt.AutoSize = true;
+			this.lblSerialNoPrompt.Location = new System.Drawing.Point(6, 76);
+			this.lblSerialNoPrompt.Name = "lblSerialNoPrompt";
+			this.lblSerialNoPrompt.Size = new System.Drawing.Size(53, 13);
+			this.lblSerialNoPrompt.TabIndex = 4;
+			this.lblSerialNoPrompt.Text = "Serial No:";
+			// 
+			// lblDeviceName
+			// 
+			this.lblDeviceName.AutoSize = true;
+			this.lblDeviceName.Location = new System.Drawing.Point(106, 52);
+			this.lblDeviceName.Name = "lblDeviceName";
+			this.lblDeviceName.Size = new System.Drawing.Size(113, 13);
+			this.lblDeviceName.TabIndex = 3;
+			this.lblDeviceName.Text = "(Please click Connect)";
+			// 
+			// lblDeviceNamePrompt
+			// 
+			this.lblDeviceNamePrompt.AutoSize = true;
+			this.lblDeviceNamePrompt.Location = new System.Drawing.Point(6, 52);
+			this.lblDeviceNamePrompt.Name = "lblDeviceNamePrompt";
+			this.lblDeviceNamePrompt.Size = new System.Drawing.Size(73, 13);
+			this.lblDeviceNamePrompt.TabIndex = 2;
+			this.lblDeviceNamePrompt.Text = "Device name:";
+			// 
+			// lblProductName
+			// 
+			this.lblProductName.AutoSize = true;
+			this.lblProductName.Location = new System.Drawing.Point(106, 28);
+			this.lblProductName.Name = "lblProductName";
+			this.lblProductName.Size = new System.Drawing.Size(113, 13);
+			this.lblProductName.TabIndex = 1;
+			this.lblProductName.Text = "(Please click Connect)";
+			// 
+			// lblProductNamePrompt
+			// 
+			this.lblProductNamePrompt.AutoSize = true;
+			this.lblProductNamePrompt.Location = new System.Drawing.Point(6, 28);
+			this.lblProductNamePrompt.Name = "lblProductNamePrompt";
+			this.lblProductNamePrompt.Size = new System.Drawing.Size(76, 13);
+			this.lblProductNamePrompt.TabIndex = 0;
+			this.lblProductNamePrompt.Text = "Product name:";
+			// 
 			// MainForm
 			// 
 			this.AcceptButton = this.btnConnect;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(723, 363);
+			this.ClientSize = new System.Drawing.Size(723, 465);
+			this.Controls.Add(this.grpDeviceInfo);
 			this.Controls.Add(this.txtPort);
 			this.Controls.Add(this.lblPort);
 			this.Controls.Add(this.lblCameraInfo);
@@ -147,6 +324,8 @@
 			this.Name = "MainForm";
 			this.Text = "Foscon Desktop Tester";
 			this.Shown += new System.EventHandler(this.MainForm_Shown);
+			this.grpDeviceInfo.ResumeLayout(false);
+			this.grpDeviceInfo.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -164,6 +343,22 @@
 		private System.Windows.Forms.Label lblCameraInfo;
 		private System.Windows.Forms.Label lblPort;
 		private System.Windows.Forms.TextBox txtPort;
+		private System.Windows.Forms.GroupBox grpDeviceInfo;
+		private System.Windows.Forms.Label lblProductNamePrompt;
+		private System.Windows.Forms.Label lblProductName;
+		private System.Windows.Forms.Label lblTimeZone;
+		private System.Windows.Forms.Label lblCurrentDate;
+		private System.Windows.Forms.Label lblCurrentDatePrompt;
+		private System.Windows.Forms.Label lblMac;
+		private System.Windows.Forms.Label lblMacPrompt;
+		private System.Windows.Forms.Label lblSerialNo;
+		private System.Windows.Forms.Label lblSerialNoPrompt;
+		private System.Windows.Forms.Label lblDeviceName;
+		private System.Windows.Forms.Label lblDeviceNamePrompt;
+		private System.Windows.Forms.Label lblHardwareVersion;
+		private System.Windows.Forms.Label lblHardwareVersionPrompt;
+		private System.Windows.Forms.Label lblFirmwareVersion;
+		private System.Windows.Forms.Label lblFirmwareVersionPrompt;
 	}
 }
 

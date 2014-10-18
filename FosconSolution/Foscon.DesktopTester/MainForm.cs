@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Foscon.Client;
 
@@ -26,9 +19,17 @@ namespace Foscon.DesktopTester
 			Camera c = new Camera( this.txtHostName.Text, Int32.Parse(this.txtPort.Text), this.txtUserName.Text, this.txtPassword.Text );
 			GetIPInfoResult ipInfo = await c.GetIPInfo();
 			GetProductModelNameResult productModelName = await c.GetProductModelName();
+			this.lblCameraInfo.Text = String.Format( CultureInfo.InvariantCulture, "Model {0} on {1}", productModelName.ModelName, ipInfo.IPAddress);
 
-			//this.lblCameraInfo.Text = String.Format( CultureInfo.InvariantCulture, "Model {0}", ipInfo.IPAddress );
-			this.lblCameraInfo.Text = String.Format( CultureInfo.InvariantCulture, "Model {0} on {1}", productModelName.ModelName, ipInfo.IPAddress );
+			GetDeviceInfoResult deviceInfo = await c.GetDeviceInfo();
+			this.lblProductName.Text = deviceInfo.ProductName;
+			this.lblDeviceName.Text = deviceInfo.DeviceName;
+			this.lblSerialNo.Text = deviceInfo.SerialNumber;
+			this.lblMac.Text = deviceInfo.MacAddress;
+			this.lblCurrentDate.Text = deviceInfo.CurrentDate.ToString(CultureInfo.CurrentCulture);
+			this.lblTimeZone.Text = deviceInfo.TimeZone;
+			this.lblFirmwareVersion.Text = deviceInfo.FirmwareVersion;
+			this.lblHardwareVersion.Text = deviceInfo.HardwareVersion;
 		}
 
 		private void MainForm_Shown( object sender, EventArgs e )
