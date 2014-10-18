@@ -103,7 +103,6 @@
 			this.txtPassword.PasswordChar = '*';
 			this.txtPassword.Size = new System.Drawing.Size(119, 20);
 			this.txtPassword.TabIndex = 4;
-			this.txtPassword.Text = "Kamer.Amera!";
 			// 
 			// lblPassword
 			// 
