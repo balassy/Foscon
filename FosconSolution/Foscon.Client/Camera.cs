@@ -17,9 +17,14 @@ namespace Foscon.Client
 		#region Private fields
 
 		/// <summary>
-		/// Stores the network address (IP address:port) of the camera.
+		/// Stores the host name or IP network address of the camera.
 		/// </summary>
-		private readonly string address;
+		private readonly string hostName;
+
+		/// <summary>
+		/// Stores the port number of the camera.
+		/// </summary>
+		private readonly int port;
 
 		/// <summary>
 		/// Stores the login name of the user to use to connect to the camera.
@@ -39,25 +44,20 @@ namespace Foscon.Client
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Camera"/> class.
 		/// </summary>
-		/// <param name="address">The network address (IP address:port) of the camera.</param>
+		/// <param name="hostName">The name or IP network address of the camera (e.g. 192.168.1.12).</param>
+		/// <param name="port">The IP port number where the camera is available (e.g. 88).</param>
 		/// <param name="userName">The login name of the user to use to connect to the camera.</param>
 		/// <param name="password">The password of the user to use to connect to the camera.</param>
-		/// <exception cref="ArgumentNullException">If the specified <paramref name="address"/> or <paramref name="userName"/> is <c>null</c> or empty.</exception>
-		public Camera( string address, string userName, string password )
+		/// <exception cref="ArgumentNullException">If the specified <paramref name="hostName"/> or <paramref name="userName"/> is <c>null</c> or empty.</exception>
+		/// <exception cref="ArgumentOutOfRangeException">If the specified <paramref name="port"/> number does not fall into the 0-65535 range.</exception>
+		public Camera( string hostName, int port, string userName, string password )
 		{
-			// Input validation.
-			if( String.IsNullOrEmpty( address ) )
-			{
-				throw new ArgumentNullException( "address" );
-			}
-			if( String.IsNullOrEmpty( userName ) )
-			{
-				throw new ArgumentNullException( "userName" );
-			}
+			Contract.Requires<ArgumentNullException>( !String.IsNullOrEmpty( hostName ) );
+			Contract.Requires<ArgumentNullException>( !String.IsNullOrEmpty( userName ) );
+			Contract.Requires<ArgumentOutOfRangeException>( port > 0 && port <= 65535 );
 
-			// TODO: Validate address format.
-
-			this.address = address;
+			this.hostName = hostName;
+			this.port = port;
 			this.userName = userName;
 			this.password = password;
 		}
@@ -201,7 +201,7 @@ namespace Foscon.Client
 		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
 		public async Task<GetIPInfoResult> GetIPInfo()
 		{
-			return await this.Execute<GetIPInfoResult>( "getIPInfo" );
+			return await this.Execute<GetIPInfoResult>( "getIPInfo" ).ConfigureAwait( false );
 		}
 
 		#endregion
@@ -229,7 +229,7 @@ namespace Foscon.Client
 		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
 		public async Task<GetProductModelNameResult> GetProductModelName()
 		{
-			return await this.Execute<GetProductModelNameResult>( "getProductModelName" );
+			return await this.Execute<GetProductModelNameResult>( "getProductModelName" ).ConfigureAwait( false );
 		}
 
 		#endregion
@@ -257,13 +257,15 @@ namespace Foscon.Client
 
 			// Execute the command and download the raw XML result string.
 			// NOTE: ConfigureAwait is added to avoid blocking UI threads. See: http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
-			HttpClient client = new HttpClient();
-			string result = await client.GetStringAsync( url ).ConfigureAwait( false );
+			using( HttpClient client = new HttpClient() )
+			{
+				string result = await client.GetStringAsync( url ).ConfigureAwait( false );
 
-			// Convert the raw XML result string to the expected result type.
-			TextReader reader = new StringReader( result );
-			XmlSerializer serializer = new XmlSerializer( typeof( TResult ) );
-			return (TResult) serializer.Deserialize( reader );
+				// Convert the raw XML result string to the expected result type.
+				TextReader reader = new StringReader( result );
+				XmlSerializer serializer = new XmlSerializer( typeof( TResult ) );
+				return (TResult) serializer.Deserialize( reader );				
+			}
 		}
 
 
@@ -279,7 +281,7 @@ namespace Foscon.Client
 			Contract.Ensures( !String.IsNullOrEmpty( Contract.Result<string>() ) );
 
 			// TODO: URL encoding!
-			return String.Format( CultureInfo.InvariantCulture, @"http://{0}/cgi-bin/CGIProxy.fcgi?usr={1}&pwd={2}&cmd={3}", this.address, this.userName, this.password, commandName );
+			return String.Format( CultureInfo.InvariantCulture, @"http://{0}:{1}/cgi-bin/CGIProxy.fcgi?usr={2}&pwd={3}&cmd={4}", this.hostName, this.port, this.userName, this.password, commandName );
 		}
 
 		#endregion

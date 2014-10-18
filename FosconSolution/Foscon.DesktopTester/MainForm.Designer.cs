@@ -28,32 +28,34 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lblAddress = new System.Windows.Forms.Label();
-			this.txtAddress = new System.Windows.Forms.TextBox();
+			this.lblHostName = new System.Windows.Forms.Label();
+			this.txtHostName = new System.Windows.Forms.TextBox();
 			this.lblUserName = new System.Windows.Forms.Label();
 			this.txtUserName = new System.Windows.Forms.TextBox();
 			this.txtPassword = new System.Windows.Forms.TextBox();
 			this.lblPassword = new System.Windows.Forms.Label();
 			this.btnConnect = new System.Windows.Forms.Button();
 			this.lblCameraInfo = new System.Windows.Forms.Label();
+			this.lblPort = new System.Windows.Forms.Label();
+			this.txtPort = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
-			// lblAddress
+			// lblHostName
 			// 
-			this.lblAddress.AutoSize = true;
-			this.lblAddress.Location = new System.Drawing.Point(13, 13);
-			this.lblAddress.Name = "lblAddress";
-			this.lblAddress.Size = new System.Drawing.Size(48, 13);
-			this.lblAddress.TabIndex = 0;
-			this.lblAddress.Text = "Address:";
+			this.lblHostName.AutoSize = true;
+			this.lblHostName.Location = new System.Drawing.Point(13, 13);
+			this.lblHostName.Name = "lblHostName";
+			this.lblHostName.Size = new System.Drawing.Size(61, 13);
+			this.lblHostName.TabIndex = 0;
+			this.lblHostName.Text = "Host name:";
 			// 
-			// txtAddress
+			// txtHostName
 			// 
-			this.txtAddress.Location = new System.Drawing.Point(83, 10);
-			this.txtAddress.Name = "txtAddress";
-			this.txtAddress.Size = new System.Drawing.Size(119, 20);
-			this.txtAddress.TabIndex = 1;
-			this.txtAddress.Text = "192.168.0.103:88";
+			this.txtHostName.Location = new System.Drawing.Point(83, 10);
+			this.txtHostName.Name = "txtHostName";
+			this.txtHostName.Size = new System.Drawing.Size(119, 20);
+			this.txtHostName.TabIndex = 1;
+			this.txtHostName.Text = "192.168.0.103";
 			// 
 			// lblUserName
 			// 
@@ -109,20 +111,39 @@
 			this.lblCameraInfo.TabIndex = 7;
 			this.lblCameraInfo.Text = "(Please click Connect)";
 			// 
+			// lblPort
+			// 
+			this.lblPort.AutoSize = true;
+			this.lblPort.Location = new System.Drawing.Point(208, 13);
+			this.lblPort.Name = "lblPort";
+			this.lblPort.Size = new System.Drawing.Size(29, 13);
+			this.lblPort.TabIndex = 8;
+			this.lblPort.Text = "Port:";
+			// 
+			// txtPort
+			// 
+			this.txtPort.Location = new System.Drawing.Point(243, 10);
+			this.txtPort.Name = "txtPort";
+			this.txtPort.Size = new System.Drawing.Size(46, 20);
+			this.txtPort.TabIndex = 9;
+			this.txtPort.Text = "88";
+			// 
 			// MainForm
 			// 
 			this.AcceptButton = this.btnConnect;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(723, 363);
+			this.Controls.Add(this.txtPort);
+			this.Controls.Add(this.lblPort);
 			this.Controls.Add(this.lblCameraInfo);
 			this.Controls.Add(this.btnConnect);
 			this.Controls.Add(this.lblPassword);
 			this.Controls.Add(this.txtPassword);
 			this.Controls.Add(this.txtUserName);
 			this.Controls.Add(this.lblUserName);
-			this.Controls.Add(this.txtAddress);
-			this.Controls.Add(this.lblAddress);
+			this.Controls.Add(this.txtHostName);
+			this.Controls.Add(this.lblHostName);
 			this.Name = "MainForm";
 			this.Text = "Foscon Desktop Tester";
 			this.Shown += new System.EventHandler(this.MainForm_Shown);
@@ -133,14 +154,16 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label lblAddress;
-		private System.Windows.Forms.TextBox txtAddress;
+		private System.Windows.Forms.Label lblHostName;
+		private System.Windows.Forms.TextBox txtHostName;
 		private System.Windows.Forms.Label lblUserName;
 		private System.Windows.Forms.TextBox txtUserName;
 		private System.Windows.Forms.TextBox txtPassword;
 		private System.Windows.Forms.Label lblPassword;
 		private System.Windows.Forms.Button btnConnect;
 		private System.Windows.Forms.Label lblCameraInfo;
+		private System.Windows.Forms.Label lblPort;
+		private System.Windows.Forms.TextBox txtPort;
 	}
 }
 

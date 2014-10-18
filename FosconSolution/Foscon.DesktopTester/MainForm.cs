@@ -23,9 +23,9 @@ namespace Foscon.DesktopTester
 		{
 			this.lblCameraInfo.Text = "Connecting...";
 
-			Camera c = new Camera( this.txtAddress.Text, this.txtUserName.Text, this.txtPassword.Text );
+			Camera c = new Camera( this.txtHostName.Text, Int32.Parse(this.txtPort.Text), this.txtUserName.Text, this.txtPassword.Text );
 			GetIPInfoResult ipInfo = await c.GetIPInfo();
-			GetProductModelNameResult productModelName = await c.GetProductModelName().ConfigureAwait(false);
+			GetProductModelNameResult productModelName = await c.GetProductModelName();
 
 			//this.lblCameraInfo.Text = String.Format( CultureInfo.InvariantCulture, "Model {0}", ipInfo.IPAddress );
 			this.lblCameraInfo.Text = String.Format( CultureInfo.InvariantCulture, "Model {0} on {1}", productModelName.ModelName, ipInfo.IPAddress );
