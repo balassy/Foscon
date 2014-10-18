@@ -315,9 +315,9 @@
             this.lblStatus,
             this.lblStatusSpacer,
             this.pbStatus});
-			this.statusStrip.Location = new System.Drawing.Point(0, 443);
+			this.statusStrip.Location = new System.Drawing.Point(0, 368);
 			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.Size = new System.Drawing.Size(723, 22);
+			this.statusStrip.Size = new System.Drawing.Size(394, 22);
 			this.statusStrip.TabIndex = 11;
 			this.statusStrip.Text = "statusStrip1";
 			// 
@@ -346,7 +346,7 @@
 			this.AcceptButton = this.btnConnect;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(723, 465);
+			this.ClientSize = new System.Drawing.Size(394, 390);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.grpDeviceInfo);
 			this.Controls.Add(this.txtPort);
