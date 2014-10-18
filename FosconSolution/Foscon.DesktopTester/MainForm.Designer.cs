@@ -54,7 +54,12 @@
 			this.lblDeviceNamePrompt = new System.Windows.Forms.Label();
 			this.lblProductName = new System.Windows.Forms.Label();
 			this.lblProductNamePrompt = new System.Windows.Forms.Label();
+			this.statusStrip = new System.Windows.Forms.StatusStrip();
+			this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+			this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
+			this.lblStatusSpacer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.grpDeviceInfo.SuspendLayout();
+			this.statusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lblHostName
@@ -304,12 +309,45 @@
 			this.lblProductNamePrompt.TabIndex = 0;
 			this.lblProductNamePrompt.Text = "Product name:";
 			// 
+			// statusStrip
+			// 
+			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus,
+            this.lblStatusSpacer,
+            this.pbStatus});
+			this.statusStrip.Location = new System.Drawing.Point(0, 443);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.Size = new System.Drawing.Size(723, 22);
+			this.statusStrip.TabIndex = 11;
+			this.statusStrip.Text = "statusStrip1";
+			// 
+			// lblStatus
+			// 
+			this.lblStatus.Name = "lblStatus";
+			this.lblStatus.Size = new System.Drawing.Size(42, 17);
+			this.lblStatus.Text = "Ready.";
+			// 
+			// pbStatus
+			// 
+			this.pbStatus.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.pbStatus.Name = "pbStatus";
+			this.pbStatus.Size = new System.Drawing.Size(100, 16);
+			this.pbStatus.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this.pbStatus.Visible = false;
+			// 
+			// lblStatusSpacer
+			// 
+			this.lblStatusSpacer.Name = "lblStatusSpacer";
+			this.lblStatusSpacer.Size = new System.Drawing.Size(533, 17);
+			this.lblStatusSpacer.Spring = true;
+			// 
 			// MainForm
 			// 
 			this.AcceptButton = this.btnConnect;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(723, 465);
+			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.grpDeviceInfo);
 			this.Controls.Add(this.txtPort);
 			this.Controls.Add(this.lblPort);
@@ -326,6 +364,8 @@
 			this.Shown += new System.EventHandler(this.MainForm_Shown);
 			this.grpDeviceInfo.ResumeLayout(false);
 			this.grpDeviceInfo.PerformLayout();
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -359,6 +399,10 @@
 		private System.Windows.Forms.Label lblHardwareVersionPrompt;
 		private System.Windows.Forms.Label lblFirmwareVersion;
 		private System.Windows.Forms.Label lblFirmwareVersionPrompt;
+		private System.Windows.Forms.StatusStrip statusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+		private System.Windows.Forms.ToolStripStatusLabel lblStatusSpacer;
+		private System.Windows.Forms.ToolStripProgressBar pbStatus;
 	}
 }
 
