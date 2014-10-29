@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Foscon.Client
@@ -8,35 +9,38 @@ namespace Foscon.Client
 		/// <summary>
 		/// Gets the detailed information about the camera device.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The version numbers and date settings of the camera.</returns>
 		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
-		public async Task<GetDeviceInfoResult> GetDeviceInfo()
+		public Task<GetDeviceInfoResult> GetDeviceInfoAsync( CancellationToken token )
 		{
-			return await this.Execute<GetDeviceInfoResult>( "getDevInfo" );
+			return this.ExecuteAsync<GetDeviceInfoResult>( "getDevInfo", token );
 		}
 
 		/// <summary>
 		/// Gets the product model number of the camera.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The model number of the camera</returns>
 		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
-		public async Task<GetProductModelResult> GetProductModel()
+		public Task<GetProductModelResult> GetProductModelAsync( CancellationToken token )
 		{
-			return await this.Execute<GetProductModelResult>( "getProductModel" );
+			return this.ExecuteAsync<GetProductModelResult>( "getProductModel", token );
 		}
 
 
 		/// <summary>
 		/// Gets the product model name of the camera.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The model name of the camera.</returns>
 		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
-		public async Task<GetProductModelNameResult> GetProductModelName()
+		public Task<GetProductModelNameResult> GetProductModelNameAsync( CancellationToken token )
 		{
-			return await this.Execute<GetProductModelNameResult>( "getProductModelName" ).ConfigureAwait( false );
+			return this.ExecuteAsync<GetProductModelNameResult>( "getProductModelName", token );
 		}
 	}
 }

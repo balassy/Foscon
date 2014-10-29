@@ -56,8 +56,9 @@
 			this.lblProductNamePrompt = new System.Windows.Forms.Label();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-			this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
 			this.lblStatusSpacer = new System.Windows.Forms.ToolStripStatusLabel();
+			this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
+			this.btnCancel = new System.Windows.Forms.Button();
 			this.grpDeviceInfo.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			this.SuspendLayout();
@@ -126,7 +127,7 @@
 			// lblCameraInfo
 			// 
 			this.lblCameraInfo.AutoSize = true;
-			this.lblCameraInfo.Location = new System.Drawing.Point(208, 94);
+			this.lblCameraInfo.Location = new System.Drawing.Point(82, 115);
 			this.lblCameraInfo.Name = "lblCameraInfo";
 			this.lblCameraInfo.Size = new System.Drawing.Size(113, 13);
 			this.lblCameraInfo.TabIndex = 7;
@@ -326,6 +327,12 @@
 			this.lblStatus.Size = new System.Drawing.Size(42, 17);
 			this.lblStatus.Text = "Ready.";
 			// 
+			// lblStatusSpacer
+			// 
+			this.lblStatusSpacer.Name = "lblStatusSpacer";
+			this.lblStatusSpacer.Size = new System.Drawing.Size(337, 17);
+			this.lblStatusSpacer.Spring = true;
+			// 
 			// pbStatus
 			// 
 			this.pbStatus.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -334,11 +341,16 @@
 			this.pbStatus.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
 			this.pbStatus.Visible = false;
 			// 
-			// lblStatusSpacer
+			// btnCancel
 			// 
-			this.lblStatusSpacer.Name = "lblStatusSpacer";
-			this.lblStatusSpacer.Size = new System.Drawing.Size(533, 17);
-			this.lblStatusSpacer.Spring = true;
+			this.btnCancel.Enabled = false;
+			this.btnCancel.Location = new System.Drawing.Point(211, 89);
+			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Size = new System.Drawing.Size(119, 23);
+			this.btnCancel.TabIndex = 12;
+			this.btnCancel.Text = "Cancel";
+			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// MainForm
 			// 
@@ -346,6 +358,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(394, 390);
+			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.grpDeviceInfo);
 			this.Controls.Add(this.txtPort);
@@ -402,6 +415,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel lblStatus;
 		private System.Windows.Forms.ToolStripStatusLabel lblStatusSpacer;
 		private System.Windows.Forms.ToolStripProgressBar pbStatus;
+		private System.Windows.Forms.Button btnCancel;
 	}
 }
 

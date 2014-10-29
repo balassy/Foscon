@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -72,11 +73,12 @@ namespace Foscon.Client
 		/// </summary>
 		/// <typeparam name="TResult">The type which describes the command result.</typeparam>
 		/// <param name="commandName">The internal name of the command to execute. Must not be <c>null</c> or empty.</param>
+		/// <param name="token">The token that you can use to abort the operation.</param>
 		/// <returns>The result of the command execution.</returns>
 		/// <remarks>
 		/// The <c>Result</c> property of the returned object must be checked to verify whether the command executed successfully or not.
 		/// </remarks>
-		private async Task<TResult> Execute<TResult>( string commandName ) where TResult: ResultBase
+		private async Task<TResult> ExecuteAsync<TResult>( string commandName, CancellationToken token ) where TResult: ResultBase
 		{
 			// Input validation.
 			Contract.Requires( !String.IsNullOrEmpty( commandName ) );
@@ -86,10 +88,11 @@ namespace Foscon.Client
 			string url = this.BuildCommandUrl( commandName );
 
 			// Execute the command and download the raw XML result string.
-			// NOTE: ConfigureAwait is added to avoid blocking UI threads. See: http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
 			using( HttpClient client = new HttpClient() )
 			{
-				string result = await client.GetStringAsync( url ).ConfigureAwait( false );
+				// NOTE: ConfigureAwait is added to avoid blocking UI threads. See: http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
+				HttpResponseMessage response = await client.GetAsync( url, token ).ConfigureAwait( false );
+				string result = await response.Content.ReadAsStringAsync().ConfigureAwait( false );
 
 				// Convert the raw XML result string to the expected result type.
 				TextReader reader = new StringReader( result );

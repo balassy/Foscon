@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Foscon.Client
@@ -8,12 +9,13 @@ namespace Foscon.Client
 		/// <summary>
 		/// Gets the IP information of the camera.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The current IP configuration of the camera.</returns>
 		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
-		public async Task<GetIPInfoResult> GetIPInfo()
+		public Task<GetIPInfoResult> GetIPInfoAsync( CancellationToken token )
 		{
-			return await this.Execute<GetIPInfoResult>( "getIPInfo" ).ConfigureAwait( false );
+			return this.ExecuteAsync<GetIPInfoResult>( "getIPInfo", token );
 		}
 	}
 }

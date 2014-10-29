@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Foscon.Client
@@ -8,33 +9,36 @@ namespace Foscon.Client
 		/// <summary>
 		/// Returns the color attribute of the video.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The previously set video settings.</returns>
-		public async Task<GetImageSettingResult> GetImageSettings()
+		public Task<GetImageSettingResult> GetImageSettingsAsync( CancellationToken token )
 		{
-			return await this.Execute<GetImageSettingResult>( "getImageSetting" );
+			return this.ExecuteAsync<GetImageSettingResult>( "getImageSetting", token );
 		}
 
 
 		/// <summary>
 		/// Returns the image transformation attributes of the video.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param> 
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The previously set mirror and flip settings.</returns>
-		public async Task<GetMirrorAndFlipSettingsResult> GetMirrorAndFlipSettings()
+		public Task<GetMirrorAndFlipSettingsResult> GetMirrorAndFlipSettingsAsync( CancellationToken token )
 		{
-			return await this.Execute<GetMirrorAndFlipSettingsResult>( "getMirrorAndFlipSetting" );
+			return this.ExecuteAsync<GetMirrorAndFlipSettingsResult>( "getMirrorAndFlipSetting", token );
 		}
 
 
 		/// <summary>
 		/// Returns the attributes of the video streams.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The previously set video stream parameters.</returns>
-		public async Task<GetVideoStreamParamResult> GetVideoStreamParams()
+		public Task<GetVideoStreamParamResult> GetVideoStreamParamsAsync( CancellationToken token )
 		{
-			return await this.Execute<GetVideoStreamParamResult>( "getVideoStreamParam" );
+			return this.ExecuteAsync<GetVideoStreamParamResult>( "getVideoStreamParam", token );
 		}
 
 
@@ -42,11 +46,12 @@ namespace Foscon.Client
 		/// <summary>
 		/// Returns the stream type of the main video stream.
 		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The type of the main video stream.</returns>
-		public async Task<GetMainVideoStreamTypeResult> GetMainVideoStreamType()
+		public Task<GetMainVideoStreamTypeResult> GetMainVideoStreamTypeAsync( CancellationToken token )
 		{
-			return await this.Execute<GetMainVideoStreamTypeResult>( "getMainVideoStreamType" );
+			return this.ExecuteAsync<GetMainVideoStreamTypeResult>( "getMainVideoStreamType", token );
 		}
 	}
 }
