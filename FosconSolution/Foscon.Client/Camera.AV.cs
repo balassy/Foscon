@@ -25,5 +25,16 @@ namespace Foscon.Client
 		{
 			return await this.Execute<GetMirrorAndFlipSettingsResult>( "getMirrorAndFlipSetting" );
 		}
+
+
+		/// <summary>
+		/// Returns the attributes of the video streams.
+		/// </summary>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The previously set video stream parameters.</returns>
+		public async Task<GetVideoStreamParamResult> GetVideoStreamParams()
+		{
+			return await this.Execute<GetVideoStreamParamResult>( "getVideoStreamParam" );
+		}
 	}
 }
