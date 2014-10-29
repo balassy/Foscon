@@ -36,5 +36,17 @@ namespace Foscon.Client
 		{
 			return await this.Execute<GetVideoStreamParamResult>( "getVideoStreamParam" );
 		}
+
+
+
+		/// <summary>
+		/// Returns the stream type of the main video stream.
+		/// </summary>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The type of the main video stream.</returns>
+		public async Task<GetMainVideoStreamTypeResult> GetMainVideoStreamType()
+		{
+			return await this.Execute<GetMainVideoStreamTypeResult>( "getMainVideoStreamType" );
+		}
 	}
 }

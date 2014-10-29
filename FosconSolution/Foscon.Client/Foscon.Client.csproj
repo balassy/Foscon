@@ -130,6 +130,7 @@
     <Compile Include="Enums\ZoomSpeed.cs" />
     <Compile Include="Results\GetDeviceInfoResult.cs" />
     <Compile Include="Results\GetImageSettingResult.cs" />
+    <Compile Include="Results\GetMainVideoStreamTypeResult.cs" />
     <Compile Include="Results\GetVideoStreamParamResult.cs" />
     <Compile Include="Results\GetMirrorAndFlipSettingResult.cs" />
     <Compile Include="Results\GetIPInfoResult.cs" />
