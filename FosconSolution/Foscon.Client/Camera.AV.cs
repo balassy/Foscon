@@ -53,5 +53,18 @@ namespace Foscon.Client
 		{
 			return this.ExecuteAsync<GetMainVideoStreamTypeResult>( "getMainVideoStreamType", token );
 		}
+
+
+		/// <summary>
+		/// Returns the On-Screen Display configuration settings.
+		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The current OSD configuration settings.</returns>
+		public Task<GetOsdSettingsResult> GetOsdSettingsAsync( CancellationToken token )
+		{
+			return this.ExecuteAsync<GetOsdSettingsResult>( "getOSDSetting", token );
+		}
+
 	}
 }

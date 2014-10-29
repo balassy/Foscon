@@ -92,12 +92,13 @@ namespace Foscon.Client
 			{
 				// NOTE: ConfigureAwait is added to avoid blocking UI threads. See: http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
 				HttpResponseMessage response = await client.GetAsync( url, token ).ConfigureAwait( false );
-				string result = await response.Content.ReadAsStringAsync().ConfigureAwait( false );
+				string content = await response.Content.ReadAsStringAsync().ConfigureAwait( false );
 
-				// Convert the raw XML result string to the expected result type.
-				TextReader reader = new StringReader( result );
+				// Convert the raw XML content string to the expected result type.
+				TextReader reader = new StringReader( content );
 				XmlSerializer serializer = new XmlSerializer( typeof( TResult ) );
-				return (TResult) serializer.Deserialize( reader );				
+				TResult result = (TResult) serializer.Deserialize( reader );
+				return result;
 			}
 		}
 
