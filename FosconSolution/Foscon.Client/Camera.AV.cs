@@ -14,5 +14,16 @@ namespace Foscon.Client
 		{
 			return await this.Execute<GetImageSettingResult>( "getImageSetting" );
 		}
+
+
+		/// <summary>
+		/// Returns the image transformation attributes of the video.
+		/// </summary>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The previously set mirror and flip settings.</returns>
+		public async Task<GetMirrorAndFlipSettingsResult> GetMirrorAndFlipSettings()
+		{
+			return await this.Execute<GetMirrorAndFlipSettingsResult>( "getMirrorAndFlipSetting" );
+		}
 	}
 }
