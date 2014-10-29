@@ -125,5 +125,18 @@ namespace Foscon.Client
 		{
 			return await this.Execute<GetPtzSpeedResult>( "getPTZSpeed" );
 		}
+
+
+		/// <summary>
+		/// Returns the list of the currently set pan-tilt-zoom preset points.
+		/// </summary>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The names of the currently set preset points for pan-tilt-zoom.</returns>
+		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods.")]
+
+		public async Task<GetPtzPresetPointListResult> GetPtzPresetPointList()
+		{
+			return await this.Execute<GetPtzPresetPointListResult>("getPTZPresetPointList");
+		}
 	}
 }
