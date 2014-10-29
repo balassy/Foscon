@@ -66,5 +66,17 @@ namespace Foscon.Client
 			return this.ExecuteAsync<GetOsdSettingsResult>( "getOSDSetting", token );
 		}
 
+
+		/// <summary>
+		/// Returns the snapshot configuration settings.
+		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The current snapshot configuration settings.</returns>
+		public Task<GetSnapshotConfigResult> GetSnapshotConfig( CancellationToken token )
+		{
+			return this.ExecuteAsync<GetSnapshotConfigResult>( "getSnapConfig", token );
+		}
+
 	}
 }
