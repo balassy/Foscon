@@ -94,7 +94,9 @@ namespace Foscon.Client
 		{
 			get
 			{
-				return new DateTime(this.Year, this.Month, this.Day, this.Hour, this.Minute, this.Seconds);
+				return this.Result != CommandResult.Success
+					? default( DateTime )
+					: new DateTime(this.Year, this.Month, this.Day, this.Hour, this.Minute, this.Seconds);
 			}
 		}
 	}
