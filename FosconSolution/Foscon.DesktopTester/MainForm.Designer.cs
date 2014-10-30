@@ -59,8 +59,10 @@
 			this.lblStatusSpacer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
 			this.btnCancel = new System.Windows.Forms.Button();
+			this.pbSnapshot = new System.Windows.Forms.PictureBox();
 			this.grpDeviceInfo.SuspendLayout();
 			this.statusStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbSnapshot)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblHostName
@@ -317,7 +319,7 @@
             this.pbStatus});
 			this.statusStrip.Location = new System.Drawing.Point(0, 368);
 			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.Size = new System.Drawing.Size(394, 22);
+			this.statusStrip.Size = new System.Drawing.Size(715, 22);
 			this.statusStrip.TabIndex = 11;
 			this.statusStrip.Text = "statusStrip1";
 			// 
@@ -330,7 +332,7 @@
 			// lblStatusSpacer
 			// 
 			this.lblStatusSpacer.Name = "lblStatusSpacer";
-			this.lblStatusSpacer.Size = new System.Drawing.Size(337, 17);
+			this.lblStatusSpacer.Size = new System.Drawing.Size(658, 17);
 			this.lblStatusSpacer.Spring = true;
 			// 
 			// pbStatus
@@ -352,12 +354,22 @@
 			this.btnCancel.UseVisualStyleBackColor = true;
 			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
+			// pbSnapshot
+			// 
+			this.pbSnapshot.Location = new System.Drawing.Point(377, 146);
+			this.pbSnapshot.Name = "pbSnapshot";
+			this.pbSnapshot.Size = new System.Drawing.Size(320, 180);
+			this.pbSnapshot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pbSnapshot.TabIndex = 13;
+			this.pbSnapshot.TabStop = false;
+			// 
 			// MainForm
 			// 
 			this.AcceptButton = this.btnConnect;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(394, 390);
+			this.ClientSize = new System.Drawing.Size(715, 390);
+			this.Controls.Add(this.pbSnapshot);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.grpDeviceInfo);
@@ -378,6 +390,7 @@
 			this.grpDeviceInfo.PerformLayout();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbSnapshot)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -416,6 +429,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel lblStatusSpacer;
 		private System.Windows.Forms.ToolStripProgressBar pbStatus;
 		private System.Windows.Forms.Button btnCancel;
+		private System.Windows.Forms.PictureBox pbSnapshot;
 	}
 }
 

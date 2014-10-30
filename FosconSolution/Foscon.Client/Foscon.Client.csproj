@@ -134,6 +134,7 @@
     <Compile Include="Results\GetImageSettingResult.cs" />
     <Compile Include="Results\GetOsdSettingsResult.cs" />
     <Compile Include="Results\GetMainVideoStreamTypeResult.cs" />
+    <Compile Include="Results\GetSnapshotResult.cs" />
     <Compile Include="Results\GetSnapshotConfigResult.cs" />
     <Compile Include="Results\GetVideoStreamParamResult.cs" />
     <Compile Include="Results\GetMirrorAndFlipSettingResult.cs" />

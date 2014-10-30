@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using Foscon.Client;
 using System.Threading;
+using System.Drawing;
 
 namespace Foscon.DesktopTester
 {
@@ -42,6 +43,11 @@ namespace Foscon.DesktopTester
 			this.lblTimeZone.Text = deviceInfo.TimeZone;
 			this.lblFirmwareVersion.Text = deviceInfo.FirmwareVersion;
 			this.lblHardwareVersion.Text = deviceInfo.HardwareVersion;
+
+			this.lblStatus.Text = "Getting snapshot image...";
+			GetSnapshotResult snapshot = await c.GetSnapshotAsync( this.cts.Token );
+			ImageConverter converter = new ImageConverter();
+			this.pbSnapshot.Image = (Image) converter.ConvertFrom( snapshot.Image );
 
 			this.lblStatus.Text = "Ready.";
 			this.pbStatus.Visible = false;

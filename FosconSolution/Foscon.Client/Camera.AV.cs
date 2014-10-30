@@ -1,6 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
+using System.IO;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Foscon.Client
 {
@@ -73,9 +78,62 @@ namespace Foscon.Client
 		/// <param name="token">The token that can be used to cancel the operation.</param>
 		/// <remarks>Requires Visitor privileges.</remarks>
 		/// <returns>The current snapshot configuration settings.</returns>
-		public Task<GetSnapshotConfigResult> GetSnapshotConfig( CancellationToken token )
+		public Task<GetSnapshotConfigResult> GetSnapshotConfigAsync( CancellationToken token )
 		{
 			return this.ExecuteAsync<GetSnapshotConfigResult>( "getSnapConfig", token );
+		}
+
+
+		/// <summary>
+		/// Takes a new snapshot image.
+		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The current snapshot image.</returns>
+		public async Task<GetSnapshotResult> GetSnapshotAsync( CancellationToken token )
+		{
+			// Input validation.
+			Contract.Ensures( Contract.Result<GetSnapshotResult>() != null );
+			
+			const string commandName = "snapPicture2";
+			GetSnapshotResult result;
+
+			// Build the command URL.
+			string url = this.BuildCommandUrl( commandName );
+
+			// Execute the command and download the raw XML result string.
+			using( HttpClient client = new HttpClient() )
+			{
+				// NOTE: ConfigureAwait is added to avoid blocking UI threads. See: http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
+				HttpResponseMessage response = await client.GetAsync( url, token ).ConfigureAwait( false );
+
+				string contentType = response.Content.Headers.ContentType.MediaType;
+
+				// In case of error the standard XML result structure is returned, and the HTTP status code remains 200 OK.
+				if( contentType.Equals( "text/plain", StringComparison.OrdinalIgnoreCase ) )
+				{
+					string content = await response.Content.ReadAsStringAsync().ConfigureAwait( false );
+
+					// Convert the raw XML content string to the expected result type.
+					TextReader reader = new StringReader( content );
+					XmlSerializer serializer = new XmlSerializer( typeof( GetSnapshotResult ) );
+					result = (GetSnapshotResult) serializer.Deserialize( reader );
+				}
+				else
+				{
+					// In case of success the body of the HTTP response contains the snapshot image.
+					byte[] content = await response.Content.ReadAsByteArrayAsync().ConfigureAwait( false );
+
+					result = new GetSnapshotResult
+					{
+						Result = CommandResult.Success,
+						MediaType = contentType,
+						Image = content
+					};
+				}
+
+				return result;
+			}
 		}
 
 	}
