@@ -26,6 +26,13 @@ namespace Foscon.DesktopTester
 
 			Camera c = new Camera( this.txtHostName.Text, Int32.Parse(this.txtPort.Text), this.txtUserName.Text, this.txtPassword.Text );
 
+			this.lblStatus.Text = "Getting port information...";
+			GetPortInfoResult ports = await c.GetPortInfoAsync( this.cts.Token );
+			this.lblHttpPort.Text = ports.HttpPort.ToString( CultureInfo.InvariantCulture );
+			this.lblHttpsPort.Text = ports.HttpsPort.ToString( CultureInfo.InvariantCulture );
+			this.lblMediaPort.Text = ports.MediaPort.ToString( CultureInfo.InvariantCulture );
+			this.lblOnvifPort.Text = ports.OnvifPort.ToString( CultureInfo.InvariantCulture );
+
 			this.lblStatus.Text = "Getting IP information...";
 			GetIPInfoResult ipInfo = await c.GetIPInfoAsync( this.cts.Token );
 

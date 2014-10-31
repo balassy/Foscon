@@ -60,9 +60,19 @@
 			this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.pbSnapshot = new System.Windows.Forms.PictureBox();
+			this.grpPortInfo = new System.Windows.Forms.GroupBox();
+			this.lblHttpPortPrompt = new System.Windows.Forms.Label();
+			this.lblHttpsPortPrompt = new System.Windows.Forms.Label();
+			this.lblMediaPortPrompt = new System.Windows.Forms.Label();
+			this.lblOnvifPortPrompt = new System.Windows.Forms.Label();
+			this.lblHttpPort = new System.Windows.Forms.Label();
+			this.lblHttpsPort = new System.Windows.Forms.Label();
+			this.lblMediaPort = new System.Windows.Forms.Label();
+			this.lblOnvifPort = new System.Windows.Forms.Label();
 			this.grpDeviceInfo.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbSnapshot)).BeginInit();
+			this.grpPortInfo.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lblHostName
@@ -317,7 +327,7 @@
             this.lblStatus,
             this.lblStatusSpacer,
             this.pbStatus});
-			this.statusStrip.Location = new System.Drawing.Point(0, 368);
+			this.statusStrip.Location = new System.Drawing.Point(0, 506);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(715, 22);
 			this.statusStrip.TabIndex = 11;
@@ -363,12 +373,102 @@
 			this.pbSnapshot.TabIndex = 13;
 			this.pbSnapshot.TabStop = false;
 			// 
+			// grpPortInfo
+			// 
+			this.grpPortInfo.Controls.Add(this.lblOnvifPort);
+			this.grpPortInfo.Controls.Add(this.lblMediaPort);
+			this.grpPortInfo.Controls.Add(this.lblHttpsPort);
+			this.grpPortInfo.Controls.Add(this.lblHttpPort);
+			this.grpPortInfo.Controls.Add(this.lblOnvifPortPrompt);
+			this.grpPortInfo.Controls.Add(this.lblMediaPortPrompt);
+			this.grpPortInfo.Controls.Add(this.lblHttpsPortPrompt);
+			this.grpPortInfo.Controls.Add(this.lblHttpPortPrompt);
+			this.grpPortInfo.Location = new System.Drawing.Point(16, 347);
+			this.grpPortInfo.Name = "grpPortInfo";
+			this.grpPortInfo.Size = new System.Drawing.Size(355, 125);
+			this.grpPortInfo.TabIndex = 14;
+			this.grpPortInfo.TabStop = false;
+			this.grpPortInfo.Text = "Port information";
+			// 
+			// lblHttpPortPrompt
+			// 
+			this.lblHttpPortPrompt.AutoSize = true;
+			this.lblHttpPortPrompt.Location = new System.Drawing.Point(6, 25);
+			this.lblHttpPortPrompt.Name = "lblHttpPortPrompt";
+			this.lblHttpPortPrompt.Size = new System.Drawing.Size(39, 13);
+			this.lblHttpPortPrompt.TabIndex = 0;
+			this.lblHttpPortPrompt.Text = "HTTP:";
+			// 
+			// lblHttpsPortPrompt
+			// 
+			this.lblHttpsPortPrompt.AutoSize = true;
+			this.lblHttpsPortPrompt.Location = new System.Drawing.Point(6, 49);
+			this.lblHttpsPortPrompt.Name = "lblHttpsPortPrompt";
+			this.lblHttpsPortPrompt.Size = new System.Drawing.Size(46, 13);
+			this.lblHttpsPortPrompt.TabIndex = 1;
+			this.lblHttpsPortPrompt.Text = "HTTPS:";
+			// 
+			// lblMediaPortPrompt
+			// 
+			this.lblMediaPortPrompt.AutoSize = true;
+			this.lblMediaPortPrompt.Location = new System.Drawing.Point(6, 73);
+			this.lblMediaPortPrompt.Name = "lblMediaPortPrompt";
+			this.lblMediaPortPrompt.Size = new System.Drawing.Size(39, 13);
+			this.lblMediaPortPrompt.TabIndex = 2;
+			this.lblMediaPortPrompt.Text = "Media:";
+			// 
+			// lblOnvifPortPrompt
+			// 
+			this.lblOnvifPortPrompt.AutoSize = true;
+			this.lblOnvifPortPrompt.Location = new System.Drawing.Point(6, 97);
+			this.lblOnvifPortPrompt.Name = "lblOnvifPortPrompt";
+			this.lblOnvifPortPrompt.Size = new System.Drawing.Size(35, 13);
+			this.lblOnvifPortPrompt.TabIndex = 3;
+			this.lblOnvifPortPrompt.Text = "Onvif:";
+			// 
+			// lblHttpPort
+			// 
+			this.lblHttpPort.AutoSize = true;
+			this.lblHttpPort.Location = new System.Drawing.Point(106, 25);
+			this.lblHttpPort.Name = "lblHttpPort";
+			this.lblHttpPort.Size = new System.Drawing.Size(113, 13);
+			this.lblHttpPort.TabIndex = 4;
+			this.lblHttpPort.Text = "(Please click Connect)";
+			// 
+			// lblHttpsPort
+			// 
+			this.lblHttpsPort.AutoSize = true;
+			this.lblHttpsPort.Location = new System.Drawing.Point(106, 49);
+			this.lblHttpsPort.Name = "lblHttpsPort";
+			this.lblHttpsPort.Size = new System.Drawing.Size(113, 13);
+			this.lblHttpsPort.TabIndex = 5;
+			this.lblHttpsPort.Text = "(Please click Connect)";
+			// 
+			// lblMediaPort
+			// 
+			this.lblMediaPort.AutoSize = true;
+			this.lblMediaPort.Location = new System.Drawing.Point(106, 73);
+			this.lblMediaPort.Name = "lblMediaPort";
+			this.lblMediaPort.Size = new System.Drawing.Size(113, 13);
+			this.lblMediaPort.TabIndex = 6;
+			this.lblMediaPort.Text = "(Please click Connect)";
+			// 
+			// lblOnvifPort
+			// 
+			this.lblOnvifPort.AutoSize = true;
+			this.lblOnvifPort.Location = new System.Drawing.Point(106, 97);
+			this.lblOnvifPort.Name = "lblOnvifPort";
+			this.lblOnvifPort.Size = new System.Drawing.Size(113, 13);
+			this.lblOnvifPort.TabIndex = 7;
+			this.lblOnvifPort.Text = "(Please click Connect)";
+			// 
 			// MainForm
 			// 
 			this.AcceptButton = this.btnConnect;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(715, 390);
+			this.ClientSize = new System.Drawing.Size(715, 528);
+			this.Controls.Add(this.grpPortInfo);
 			this.Controls.Add(this.pbSnapshot);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.statusStrip);
@@ -391,6 +491,8 @@
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbSnapshot)).EndInit();
+			this.grpPortInfo.ResumeLayout(false);
+			this.grpPortInfo.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -430,6 +532,15 @@
 		private System.Windows.Forms.ToolStripProgressBar pbStatus;
 		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.PictureBox pbSnapshot;
+		private System.Windows.Forms.GroupBox grpPortInfo;
+		private System.Windows.Forms.Label lblOnvifPortPrompt;
+		private System.Windows.Forms.Label lblMediaPortPrompt;
+		private System.Windows.Forms.Label lblHttpsPortPrompt;
+		private System.Windows.Forms.Label lblHttpPortPrompt;
+		private System.Windows.Forms.Label lblOnvifPort;
+		private System.Windows.Forms.Label lblMediaPort;
+		private System.Windows.Forms.Label lblHttpsPort;
+		private System.Windows.Forms.Label lblHttpPort;
 	}
 }
 

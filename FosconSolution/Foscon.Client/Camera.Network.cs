@@ -17,5 +17,18 @@ namespace Foscon.Client
 		{
 			return this.ExecuteAsync<GetIPInfoResult>( "getIPInfo", token );
 		}
+
+
+		/// <summary>
+		/// Gets the service ports of the camera.
+		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The current port configuration of the camera.</returns>
+		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
+		public Task<GetPortInfoResult> GetPortInfoAsync( CancellationToken token )
+		{
+			return this.ExecuteAsync<GetPortInfoResult>( "getPortInfo", token );
+		}
 	}
 }

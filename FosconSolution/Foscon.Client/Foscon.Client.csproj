@@ -132,6 +132,7 @@
     <Compile Include="Enums\ZoomSpeed.cs" />
     <Compile Include="Results\GetDeviceInfoResult.cs" />
     <Compile Include="Results\GetImageSettingResult.cs" />
+    <Compile Include="Results\GetPortInfoResult.cs" />
     <Compile Include="Results\GetOsdSettingsResult.cs" />
     <Compile Include="Results\GetMainVideoStreamTypeResult.cs" />
     <Compile Include="Results\GetSnapshotResult.cs" />
