@@ -43,5 +43,18 @@ namespace Foscon.Client
 		{
 			return this.ExecuteAsync<GetDdnsConfigResult>( "getDDNSConfig", token );
 		}
+
+
+		/// <summary>
+		/// Gets the FTP configuration settings of the camera.
+		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The current FTP configuration of the camera.</returns>
+		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
+		public Task<GetFtpConfigResult> GetFtpConfigAsync( CancellationToken token )
+		{
+			return this.ExecuteAsync<GetFtpConfigResult>( "getFtpConfig", token );
+		}
 	}
 }
