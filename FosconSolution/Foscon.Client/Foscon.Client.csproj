@@ -126,11 +126,14 @@
     <Compile Include="Camera.PTZ.cs" />
     <Compile Include="Camera.Network.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Enums\UpdateState.cs" />
+    <Compile Include="Enums\SDCardState.cs" />
     <Compile Include="Enums\CommandResult.cs" />
     <Compile Include="Enums\SnapshotSaveLocation.cs" />
     <Compile Include="Enums\SnapshotQuality.cs" />
     <Compile Include="Enums\DdnsProvider.cs" />
     <Compile Include="Enums\FtpMode.cs" />
+    <Compile Include="Enums\AlarmState.cs" />
     <Compile Include="Enums\ZoomSpeed.cs" />
     <Compile Include="Results\GetDeviceInfoResult.cs" />
     <Compile Include="Results\GetImageSettingResult.cs" />
@@ -147,6 +150,7 @@
     <Compile Include="Results\GetProductModelResult.cs" />
     <Compile Include="Results\GetPtzPresetPointListResult.cs" />
     <Compile Include="Results\GetFtpConfigResult.cs" />
+    <Compile Include="Results\GetDeviceStateResult.cs" />
     <Compile Include="Results\GetZoomSpeedResult.cs" />
     <Compile Include="Results\GetPtzSpeedResult.cs" />
     <Compile Include="GlobalSuppressions.cs" />

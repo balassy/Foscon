@@ -42,5 +42,18 @@ namespace Foscon.Client
 		{
 			return this.ExecuteAsync<GetProductModelNameResult>( "getProductModelName", token );
 		}
+
+
+		/// <summary>
+		/// Gets the current state of the various features of the camera.
+		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The current states of the camera.</returns>
+		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
+		public Task<GetDeviceStateResult> GetDeviceStateAsync( CancellationToken token )
+		{
+			return this.ExecuteAsync<GetDeviceStateResult>( "getDevState", token );
+		}
 	}
 }
