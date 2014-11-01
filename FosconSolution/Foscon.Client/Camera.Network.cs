@@ -30,5 +30,18 @@ namespace Foscon.Client
 		{
 			return this.ExecuteAsync<GetPortInfoResult>( "getPortInfo", token );
 		}
+
+
+		/// <summary>
+		/// Gets the Dynamic DNS configuration settings of the camera.
+		/// </summary>
+		/// <param name="token">The token that can be used to cancel the operation.</param>
+		/// <remarks>Requires Visitor privileges.</remarks>
+		/// <returns>The current DDNS configuration of the camera.</returns>
+		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Conforms with the other control methods." )]
+		public Task<GetDdnsConfigResult> GetDdnsConfigAsync( CancellationToken token )
+		{
+			return this.ExecuteAsync<GetDdnsConfigResult>( "getDDNSConfig", token );
+		}
 	}
 }

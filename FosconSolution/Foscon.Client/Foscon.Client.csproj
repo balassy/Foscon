@@ -129,9 +129,11 @@
     <Compile Include="Enums\CommandResult.cs" />
     <Compile Include="Enums\SnapshotSaveLocation.cs" />
     <Compile Include="Enums\SnapshotQuality.cs" />
+    <Compile Include="Enums\DdnsProvider.cs" />
     <Compile Include="Enums\ZoomSpeed.cs" />
     <Compile Include="Results\GetDeviceInfoResult.cs" />
     <Compile Include="Results\GetImageSettingResult.cs" />
+    <Compile Include="Results\GetDdnsConfigResult.cs" />
     <Compile Include="Results\GetPortInfoResult.cs" />
     <Compile Include="Results\GetOsdSettingsResult.cs" />
     <Compile Include="Results\GetMainVideoStreamTypeResult.cs" />
